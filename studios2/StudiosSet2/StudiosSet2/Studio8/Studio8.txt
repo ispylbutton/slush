@@ -1,0 +1,37 @@
+1. Nick Vilimek and Laurel Button
+
+2. 
+Sleeper’s PID is: 3450
+Slept for 0 iterations!
+Slept for 1 iterations!
+Slept for 2 iterations!
+Slept for 3 iterations!
+Slept for 4 iterations!
+
+3. Value = 2 and Comment = Interrupt from keyboard. 
+
+4. The second terminal kill command kills the sleep process in terminal 1. 
+
+5. Signal = signal (Value= 4). Kill the process with the message “Illegal instruction (core dumped)”.
+
+6. the sleeper and caller are both killed. The program did not print its success message. 
+
+7. 
+void signalHandler(int signum){
+  printf("Function ignoring SIGINT\n”);
+}
+
+(in main)
+signal(2,signalHandler);
+
+8. 
+
+Forking sleeper…
+Waiting sleep...
+Sleeper’s PID is: 21106
+Slept for 0 iterations!
+Slept for 1 iterations!
+^CFunction ignoring SIGINT
+Parent finished waiting and returned successfully. 
+
+9. If you have a smartphone app that receives updates from a web server whenever the user changes something on the website. 

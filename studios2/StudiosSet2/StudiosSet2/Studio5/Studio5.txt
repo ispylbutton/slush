@@ -1,0 +1,30 @@
+1. Nick Vilimek and Laurel Button 
+
+2. 
+35192 
+35209
+35213
+
+3. 
+39776
+39777
+
+4. Returns the pid of the child process and 0 is returned in the child.
+
+5. 
+Parent 40348
+Child 40349
+
+6. No, the child waits three seconds to print but the parent prints before the child does.
+
+7. This time the child waits 3 seconds, the child prints, and then the parent prints.
+
+8. ./fork: cannot access ls: No such file or directory
+
+9.
+Child 3524
+total 3
+-rwxr-xr-x. 1 vilimeknj student 8720 Feb  1 12:50 fork
+-rw-r--r--. 1 vilimeknj student  425 Feb  1 12:50 fork.c
+-rw-r--r--. 1 vilimeknj student   24 Feb  1 11:29 Makefile
+Parent 3523

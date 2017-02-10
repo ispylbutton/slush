@@ -1,0 +1,73 @@
+1. Nick Vilimek and Laurel Button
+
+//Program 1
+
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+int main ( int argc, char* argv[] ){
+  
+  char buffer[]="Hello, world!\n";
+  write(STDOUT_FILENO, buffer, 400);
+  
+  return 0;
+}
+
+//Program 2
+
+#include <stdio.h>
+#include <string.h>
+
+int main ( int argc, char* argv[] ){
+  
+  char buffer[200];
+  int loops = 0;
+  int error;
+  
+  while(1){
+    if(fgets(buffer,200,stdin)==NULL){
+      perror("Error in reading input:");
+      break;
+    }
+    
+    printf("Program 2 got: %s",buffer);
+    loops++;
+  }
+    
+  printf("Looped: %d",loops);
+  
+  return 0;
+}
+
+
+2. 
+Program1
+Program2
+Hello World
+
+3. the 0th index contains the read end and the 1st index contains the write.
+
+4. the second argument newfd closes 
+
+5. 
+dup2(pipefd[1], STDOUT_FILENO);
+dup2(pipefd[0], STDIN_FILENO);
+
+6. 
+Program2
+Program 2 got: Hello World
+
+7. 
+Program2
+Program 2 got: Hello World
+Parent returned
+
+8. One advantage would be that the system would be highly adaptable. If the first program returned similar data it could be swapped out for a number of similar programs. 
+
+Another advantage would be that the programs run independently of each other and don’t have to rely on each other except for input. 
+
+
+ 
+ 
+ 

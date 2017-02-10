@@ -1,0 +1,58 @@
+1. Nick Vilimek and Laurel Button
+
+2. This is a test 123. 
+
+3. On the first call to strtok() the string to be parsed is in str, but in the next calls str should be NULL because it parses the the same string again.
+
+4. For a standard text input the delimiter would be the newline character. 
+
+5. Test
+
+6. input = one, two, three, four, five, six 
+one
+ two
+ three
+ four
+ five
+ six
+
+7. strippedNewline = strtok(buffer,"\n");
+
+8.
+
+9. 
+cmd = strtok(strippedNewline,",");
+
+while(cmd != NULL){
+  printf("%s\n", cmd);
+  cmd = strtok(NULL,",");
+}
+
+10. 
+
+int max_args = 15;
+int max_argv_size = max_args + 2;
+char* cmd;
+char* my_argv[max_argv_size];
+char* remainingArgv;
+  
+cmd = strtok(strippedNewline," ");
+my_argv[0] = cmd;
+  
+int i;
+for(i=1;i<max_argv_size;i++){
+  remainingArgv = strtok(NULL," ");
+  if(remainingArgv == NULL){ 
+    my_argv[i] = '\0';
+    break; 
+  }
+  my_argv[i] = remainingArgv;   
+}
+  
+execvp( cmd, my_argv );
+ 
+
+11.
+-rwxr-xr-x. 1 vilimeknj student 8664 Feb  5 11:00 inputParse
+-rw-r--r--. 1 vilimeknj student  743 Feb  5 11:00 inputParse.c
+-rw-r--r--. 1 vilimeknj student   36 Feb  2 09:36 Makefile

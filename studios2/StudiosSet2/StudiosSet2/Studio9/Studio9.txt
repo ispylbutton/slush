@@ -1,0 +1,35 @@
+1. Nick Vilimek and Laurel Button
+
+2. Both the return type and the argumentsements are void*.
+
+3. 
+
+4. This is a test
+
+5. 
+struct struct_1{
+  int arg1;
+  char* arg2;
+  int ret;
+};
+
+6. 
+thread arg1: 0
+thread arg2: Test
+
+7. 
+
+thread arg1: 0
+thread arg2: Test
+
+(in main)
+Return 4
+
+8. 
+thread arg2: This is thread 0
+thread arg2: This is thread 1
+thread arg2: This is thread 2
+thread arg2: This is thread 3
+thread arg2: This is thread 4
+
+9. The ordering is numerical. This might be because even though they are running in parallel the all take the same amount of time so they finish in the order they started in. 
