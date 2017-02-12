@@ -8,21 +8,70 @@ Perform basic signal handling*/
 #include <string.h>
 #include <signal.h>
 
+void debug(char ** arguments){
+  int i;
+  
+  for (i=0; i<16; i++){
+    printf("arg %d: %s\n",i,arguments[i]);
+  }
+}
+
+int cd( char* token){
+  //getcwd(char *buf, size_t size);
+  return chdir(token);
+}
+
+void * pwd(){
+  
+  printf("current directory: %s\n",get_current_dir_name());
+}
+
+
 int main(int argc, char* argv[]) {
  //signal(SIGINT,SIG_IGN);
- //signal(SIGQUIT,);
- 
-char buffer[200];
-char* firstToken;
-while (firstToken!="exit"){
-fgets(buffer, 200,stdin);
-firstToken=strtok(buffer,",");
-//while firstToken!=
-while (firstToken!=NULL) {
-  printf("%s\n", firstToken);
+ //signal(SIGQUIT,SIG_DFL);
+  char buffer[8000];
+  char* token;
+  char* fullLine[16];
+  int changedDir;
+  int splitProcess;
+  int i;
+  while (token!="exit"){
+    fgets(buffer, 8000,stdin);
+    token=strtok(buffer," \n");
+    printf("token is currently %s at first strok\n", token);
+    i=0;
+    while ((token!=NULL)&&(i<16)) {
+      fullLine[i]=token;
+      i++;
+      token=strtok(NULL," \n");
+      printf("token is currently %s at %d strok\n", token,i);
+    }
+    
+    if (strncmp(fullLine[0],"cd",500)==0){
+      changedDir=cd(fullLine[1]);
+        if (changedDir==0){
+	printf("successful change\n");
+      
+	}
+	else {
+	  printf("change was not successful\n");
+	}
 
-  firstToken=strtok(NULL,",");
-}
-}
+    }
+    
+    else if (strncmp(fullLine[0],"pwd",500)==0){
+      pwd(fullLine[1]);
+      //token=strtok(NULL," ");  
+    }
+    else{
+      splitProcess=fork();
+      if (splitProcess==0){
+	//printf("in child
+	
+    
+    debug(fullLine);
+
+  }
   return 0;
 }
